@@ -25,17 +25,28 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+        <title>Txorbi Agenda</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/apiDatos.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <div data-role="page" id="listado">
+			<div data-role="cabecera">
+				<h1>Txorbi Agenda</h1>
+			</div>
+
+			<div data-role="content" id="contenido">
+					<ul id="listaContactos" data-role="listview" data-filter="true" data-filter-placeholder="Buscar contacto..." data-inset="true">
+						
+					</ul>
+			</div>
+
+			<div data-role="footer" id="pie">
+				<a href="#" id="borrar" class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-notext">Borrar</a>
+			</div>
+		</div>
     </body>
 </html>

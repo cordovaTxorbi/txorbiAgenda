@@ -16,36 +16,47 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+	
+var contactos;
+contactos = obtenerContactos();
+console.log("Numero de contactos: " + contactos.length); 
+
+
+var app = 
+{
     // Application Constructor
-    initialize: function() {
+    initialize: function() 
+    {   	
         this.bindEvents();
     },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
+    bindEvents: function() 
+    {
+    	$(document).ready(function()
+    	{
+    		for (var i = 0; i < contactos.length; i++)
+    		{
+    			//$("#listaContactos").append("<li><a <a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'>"+contactos[i].nombre+"</a></li>");
+    			$("#listaContactos").append("<li id='"+contactos[i].id+"' class='ui-li-has-thumb ui-first-child'><a href='detalle.html' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='img/logo.png'><h2>"+contactos[i].nombre+"</h2><p>"+contactos[i].telefono+"</p></a></li>");	
+    		}  
+    	});
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
+    onDeviceReady: function() 
+    {
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+    receivedEvent: function(id) 
+    {
+   
     }
 };
-
 app.initialize();
